@@ -1,6 +1,8 @@
 package authors
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 func AuthorsRegister(router *gin.RouterGroup) {
 	router.GET("authors/:id", AuthorGet)
@@ -11,7 +13,8 @@ func AuthorsRegister(router *gin.RouterGroup) {
 }
 
 func AuthorGet(c *gin.Context) {
-	
+	id, _ := c.Params.Get("id")
+	getAuthorByID(id)
 }
 
 func AuthorUpdate(c *gin.Context) {

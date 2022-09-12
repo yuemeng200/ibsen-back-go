@@ -1,9 +1,8 @@
 package main
 
 import (
-	"awesomeProject/authors"
-	"awesomeProject/common"
-
+	"ibsen-back-go/authors"
+	"ibsen-back-go/common"
 	"github.com/gin-gonic/gin"
 )
 

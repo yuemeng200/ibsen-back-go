@@ -13,9 +13,12 @@ func InitDB(uri, username, password string) {
 	fmt.Println(err)
 }
 
-func Run(cypher string, params map[string]interface{}) (neo4j.Result, error) {
+func Run(cypher string, params map[string]interface{}) neo4j.Result {
 	session:= driver.NewSession(neo4j.SessionConfig{AccessMode: neo4j.AccessModeWrite})
 	defer session.Close()
-	res, err := session.Run(cypher, map[string]interface{}{"message": "hello, world"})
-	return res, err
+	res, err := session.Run(cypher, params)
+	if err!=nil{
+		fmt.Println(err)
+	}
+	return res
 }

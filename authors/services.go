@@ -1,11 +1,14 @@
 package authors
 
 import (
-	"awesomeProject/common"
-	"common"
+	"ibsen-back-go/common"
+	"ibsen-back-go/util/log"
 )
 
-func getAuthorByID(id) {
+func getAuthorByID(id string){
 	cypher := "MATCH (a:author) WHERE a.id=$id RETURN a"
-	common.Run
+	params := map[string]interface{}{"id": id}
+	res := common.Run(cypher, params)
+	r, _ := res.Keys()
+	log.Logger("res %v",r )
 }

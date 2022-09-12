@@ -1,0 +1,1 @@
+docker run -d --name container_name -p 27474:7474 -p 27687:7687 -v /opt/neo4j/data:/data -v /opt/neo4j/logs:/logs -v /opt/neo4j/conf:/var/lib/neo4j/conf -v /opt/neo4j/import:/var/lib/neo4j/import --env NEO4J_AUTH=neo4j/password neo4j:4.0

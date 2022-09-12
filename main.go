@@ -1,13 +1,13 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"ibsen-back-go/authors"
 	"ibsen-back-go/common"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	common.InitDB("bolt://127.0.0.1:11003", "neo4j", "beilin123")
+	common.InitDB("bolt://39.107.25.37:27687", "neo4j", "password")
 	r := gin.Default()
 	v1 := r.Group("api")
 	authors.AuthorsRegister(v1)
